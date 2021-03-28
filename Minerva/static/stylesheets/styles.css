@@ -17,3 +17,7 @@
 .video{
    width: fit-content;
 }
+
+.title{
+   color: #B7762A; border-bottom:1px solid black; width: 80%; padding-top: 1vh; font-size: 2vw;  text-align: center;
+}

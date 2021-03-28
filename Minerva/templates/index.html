@@ -25,11 +25,40 @@
       <div class = "col-4">
         <div class = "row">
           <img src="{{url_for('static', filename='logo.png')}}" width="100%" height="100%" class="d-inline-block align-top" alt="">
+          
+          <div class = "container-fluid rounded border-dark justify-content-md-center" style="background-color: #6AB3B3; margin: 1vw; border: .1vw #3E8F91 solid;" >
+            <div class = "row justify-content-md-center">
+              <div class="title">Current Presentation</div>
+
+              <ul class="nav nav-tabs" style="margin-top: 1vh;" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab" aria-controls="info" aria-selected="true">Info</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="authors-tab" data-bs-toggle="tab" data-bs-target="#authors" type="button" role="tab" aria-controls="authors" aria-selected="false">Authors</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="related-tab" data-bs-toggle="tab" data-bs-target="#related" type="button" role="tab" aria-controls="related" aria-selected="false">Related</button>
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">...</div>
+                <div class="tab-pane fade" id="authors" role="tabpanel" aria-labelledby="authors-tab">...</div>
+                <div class="tab-pane fade" id="related" role="tabpanel" aria-labelledby="related-tab">...</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class ="col" style="background-color:blue;">
-        <div class="embed-responsive embed-responsive-16by9" >
+      <div class ="col">
+        <div class="embed-responsive embed-responsive-16by9" style="margin: .5vw; border: .75vw double black; background-color: gray;" >
           <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+        </div>
+        <div class = "container-fluid" style="background-color: #6AB3B3;">
+          <div class = "row">
+            <div class = "col-9">Hello World</div>
+            <div class = "col">Nice Job</div>
+          </div>
         </div>
       </div>
     </div>
