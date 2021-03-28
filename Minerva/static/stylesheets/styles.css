@@ -1,0 +1,19 @@
+.containerdetails {
+   background-color: lightgray;
+   border: black;
+   border-width: 0.25vw;
+   border-style: solid;
+  }
+
+.altColor1{
+   background-color: red;
+}
+
+
+.altColor2{
+   background-color: blue;
+}
+
+.video{
+   width: fit-content;
+}
