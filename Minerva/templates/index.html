@@ -12,6 +12,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    
 
     <title>Minerva</title>
 </head>
@@ -28,24 +29,27 @@
           
           <div class = "container-fluid rounded border-dark justify-content-md-center" style="background-color: #6AB3B3; margin: 1vw; border: .1vw #3E8F91 solid;" >
             <div class = "row justify-content-md-center">
-              <div class="title">Current Presentation</div>
+              <div class="title"><b>Current Presentation</b></div>
 
-              <ul class="nav nav-tabs" style="margin-top: 1vh;" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab" aria-controls="info" aria-selected="true">Info</button>
+
+              <ul class="nav nav-tabs" id="myTab" role="tablist" style="border: none;">
+                <li class="nav-item">
+                  <a class="nav-link active" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="true" style="color: black; margin-right: 1vw"><b style="border-bottom: #5E5E5E .1vw solid;">Info</b></a>
                 </li>
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="authors-tab" data-bs-toggle="tab" data-bs-target="#authors" type="button" role="tab" aria-controls="authors" aria-selected="false">Authors</button>
+                <li class="nav-item">
+                  <a class="nav-link" id="authors-tab" data-toggle="tab" href="#authors" role="tab" aria-controls="authors" aria-selected="false" style="color: black; margin-right: 1vw;"><b style="border-bottom: #5E5E5E .1vw solid;">Authors</b></a>
                 </li>
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="related-tab" data-bs-toggle="tab" data-bs-target="#related" type="button" role="tab" aria-controls="related" aria-selected="false">Related</button>
+                <li class="nav-item">
+                  <a class="nav-link" id="related-tab" data-toggle="tab" href="#related" role="tab" aria-controls="related" aria-selected="false" style="color: black; margin-right: 1vw;"><b style="border-bottom: #5E5E5E .1vw solid;">Related</b></a>
                 </li>
               </ul>
-              <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">...</div>
-                <div class="tab-pane fade" id="authors" role="tabpanel" aria-labelledby="authors-tab">...</div>
-                <div class="tab-pane fade" id="related" role="tabpanel" aria-labelledby="related-tab">...</div>
+              
+              <div class="tab-content justify-content-md-center;" style="margin: 1vw;">
+                <div class="tab-pane active" id="info" role="tabpanel" aria-labelledby="info-tab">This is the info tab. Here will be where the information will exist for info.</div>
+                <div class="tab-pane" id="authors" role="tabpanel" aria-labelledby="authors-tab">This is the authors tab. Here will be where the information will exist for authors.</div>
+                <div class="tab-pane" id="related" role="tabpanel" aria-labelledby="related-tab">This is the authors tab. Here will be where the information will exist for related.</div>
               </div>
+              
             </div>
           </div>
         </div>
@@ -54,12 +58,20 @@
         <div class="embed-responsive embed-responsive-16by9" style="margin: .5vw; border: .75vw double black; background-color: gray;" >
           <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
         </div>
-        <div class = "container-fluid" style="background-color: #6AB3B3;">
+        <div class = "container-fluid"></div>
           <div class = "row">
-            <div class = "col-9">Hello World</div>
-            <div class = "col">Nice Job</div>
+            <div class = "col-9" style="background-color: #6AB3B3; margin-left: 1.75vw;"></div>
+            
+            <div class = "col">
+              <button type="button" class="btn " style="background-color: lightgray; background-image: url(/static/power.png); background-size: contain; background-repeat: no-repeat; background-position: center;"></button>
+              <button type="button" class="btn " style="background-color: lightgray; background-image: url(/static/setting.png); background-size: contain; background-repeat: no-repeat; background-position: center;"></button>
+
+            </div>
           </div>
+
         </div>
+
+
       </div>
     </div>
 
@@ -73,6 +85,71 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+    <script>
+      $(function () {
+        console.log("I am here");
+    $('#myTab li:last-child a').tab('show')
+    })
+    </script>
+
+    <script>
+
+initDraw(document.getElementById('canvas'));
+
+
+function initDraw(canvas) {
+    var mouse = {
+        x: 0,
+        y: 0,
+        startX: 0,
+        startY: 0
+    };
+    function setMousePosition(e) {
+        var ev = e || window.event; //Moz || IE
+        if (ev.pageX) { //Moz
+            mouse.x = ev.pageX + window.pageXOffset;
+            mouse.y = ev.pageY + window.pageYOffset;
+        } else if (ev.clientX) { //IE
+            mouse.x = ev.clientX + document.body.scrollLeft;
+            mouse.y = ev.clientY + document.body.scrollTop;
+        }
+    };
+
+    var element = null;    
+    canvas.onmousemove = function (e) {
+        setMousePosition(e);
+        if (element !== null) {
+            element.style.width = Math.abs(mouse.x - mouse.startX) + 'px';
+            element.style.height = Math.abs(mouse.y - mouse.startY) + 'px';
+            element.style.left = (mouse.x - mouse.startX < 0) ? mouse.x + 'px' : mouse.startX + 'px';
+            element.style.top = (mouse.y - mouse.startY < 0) ? mouse.y + 'px' : mouse.startY + 'px';
+        }
+    }
+
+    canvas.onclick = function (e) {
+        if (element !== null) {
+            element = null;
+            canvas.style.cursor = "default";
+            console.log("finsihed.");
+        } else {
+            console.log("begun.");
+            mouse.startX = mouse.x;
+            mouse.startY = mouse.y;
+            element = document.createElement('div');
+            element.className = 'rectangle'
+            element.style.left = mouse.x + 'px';
+            element.style.top = mouse.y + 'px';
+            canvas.appendChild(element)
+            canvas.style.cursor = "crosshair";
+        }
+    }
+}
+
+console.log("I AM HERE DAMN IT");
+
+    </script>
 </body>
+
+
 
 </html>
