@@ -51,25 +51,51 @@
               </div>
               
             </div>
+
+            <div class = "row">
+              <div class = "container-fluid">
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class ="col">
-        <div class="embed-responsive embed-responsive-16by9" style="margin: .5vw; border: .75vw double black; background-color: gray;" >
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-        </div>
-        <div class = "container-fluid"></div>
-          <div class = "row">
-            <div class = "col-9" style="background-color: #6AB3B3; margin-left: 1.75vw;"></div>
-            
-            <div class = "col">
-              <button type="button" class="btn " style="background-color: lightgray; background-image: url(/static/power.png); background-size: contain; background-repeat: no-repeat; background-position: center;"></button>
-              <button type="button" class="btn " style="background-color: lightgray; background-image: url(/static/setting.png); background-size: contain; background-repeat: no-repeat; background-position: center;"></button>
+        <img id="canvas" src="{{url_for('static', filename='edit.png')}}" width="100%" max-height=".5vh" class="video" alt="">
 
+        <div class = "container-fluid" style="margin: 4px;">
+          <div class = "row">
+
+            <div class = "col-9" style="background-color: #6AB3B3; margin: 10px;"> 
+              <div class ="container-fluid">
+                <div class ="row">
+                  <div class ="col">
+                    <div class = "float-right"  style="color: #b7772a; font-size: xx-large;"><b>Insights</b></div>
+                  </div>               
+                </div>
+                <div class ="row">
+                  <div class = "col">
+                    <p style="font-weight: bold;">   <span style="color: #ee4e7a;">Demosaicking </span> in this context refers to a digital image process used to reconstruct a full color image from incomplete color samples output originating from an image sensor.</p>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <div class = "col">
+              <div class = "row">
+                <button type="button" class="btn" style=" height: 10vh; width: 5vw; background-color: lightgray; background-image: url(/static/power.png); background-size: contain; background-repeat: no-repeat; background-position: center;"></button>
+              </div>
+              <div class = "row">
+                <button type="button" class="btn " style="height: 10vh; width: 5vw;  background-color: lightgray; background-image: url(/static/setting.png); background-size: contain; background-repeat: no-repeat; background-position: center;"></button>
+              </div>
+            </div>
+           
+    
           </div>
 
         </div>
+
+        
 
 
       </div>
