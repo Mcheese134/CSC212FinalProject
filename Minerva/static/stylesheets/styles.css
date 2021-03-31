@@ -20,3 +20,17 @@
 .title{
    color: #B7762A; border-bottom:1px solid gray; width: 80%; padding-top: 1vh; font-size: 2vw;  text-align: center;
 }
+
+
+
+/* The heart of the matter */
+.testimonial-group > .row {
+   display: block;
+   overflow-x: auto;
+   white-space: nowrap;
+ }
+ .testimonial-group > .row > .col-4 {
+   display: inline-block;
+ }
+
+ 
