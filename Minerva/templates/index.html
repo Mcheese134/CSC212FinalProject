@@ -2,220 +2,338 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/static/stylesheets/styles.css" media="screen" type="text/css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/static/stylesheets/styles.css" media="screen" type="text/css">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    
 
-    <title>Minerva</title>
+
+  <title>Minerva</title>
 </head>
 
-<body  class="containerdetails">
+<body class="containerdetails">
 
 
-  <div class ="container-fluid">
+  <div class="container-fluid">
 
-    <div class = "row">
-      <div class = "col-4">
-        <div class = "row">
-          <img src="{{url_for('static', filename='logo.png')}}" width="100%" height="100%" class="d-inline-block align-top" alt="">
-          
-          <div class = "container-fluid rounded border-dark justify-content-md-center" style="background-color: #6AB3B3; margin: 1vw; border: .1vw #3E8F91 solid;" >
-            <div class = "row justify-content-md-center">
+    <div class="row">
+      <div class="col-4">
+        <div class="row">
+          <img src="{{url_for('static', filename='logo.png')}}" width="100%" height="100%"
+            class="d-inline-block align-top" alt="">
+
+          <div class="container-fluid rounded border-dark justify-content-md-center"
+            style="background-color: #6AB3B3; margin: 1vw; border: .1vw #3E8F91 solid;">
+            <div class="row justify-content-md-center">
               <div class="title"><b>Current Presentation</b></div>
 
 
               <ul class="nav nav-tabs" id="myTab" role="tablist" style="border: none;">
                 <li class="nav-item">
-                  <a class="nav-link active" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="true" style="color: black; margin-right: 1vw"><b style="border-bottom: #5E5E5E .1vw solid;">Info</b></a>
+                  <a class="nav-link active" id="info-tab" data-toggle="tab" href="#info" role="tab"
+                    aria-controls="info" aria-selected="true" style="color: black; margin-right: 1vw"><b
+                      style="border-bottom: #5E5E5E .1vw solid;">Info</b></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" id="authors-tab" data-toggle="tab" href="#authors" role="tab" aria-controls="authors" aria-selected="false" style="color: black; margin-right: 1vw;"><b style="border-bottom: #5E5E5E .1vw solid;">Authors</b></a>
+                  <a class="nav-link" id="authors-tab" data-toggle="tab" href="#authors" role="tab"
+                    aria-controls="authors" aria-selected="false" style="color: black; margin-right: 1vw;"><b
+                      style="border-bottom: #5E5E5E .1vw solid;">Authors</b></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" id="related-tab" data-toggle="tab" href="#related" role="tab" aria-controls="related" aria-selected="false" style="color: black; margin-right: 1vw;"><b style="border-bottom: #5E5E5E .1vw solid;">Related</b></a>
+                  <a class="nav-link" id="related-tab" data-toggle="tab" href="#related" role="tab"
+                    aria-controls="related" aria-selected="false" style="color: black; margin-right: 1vw;"><b
+                      style="border-bottom: #5E5E5E .1vw solid;">Related</b></a>
                 </li>
               </ul>
-              
+
               <div class="tab-content justify-content-md-center;" style="margin: 1vw;">
-                <div class="tab-pane active" id="info" role="tabpanel" aria-labelledby="info-tab">This is the info tab. Here will be where the information will exist for info.</div>
-                <div class="tab-pane" id="authors" role="tabpanel" aria-labelledby="authors-tab">This is the authors tab. Here will be where the information will exist for authors.</div>
-                <div class="tab-pane" id="related" role="tabpanel" aria-labelledby="related-tab">This is the authors tab. Here will be where the information will exist for related.</div>
+                <div class="tab-pane active" id="info" role="tabpanel" aria-labelledby="info-tab">This is the info tab.
+                  Here will be where the information will exist for info.</div>
+                <div class="tab-pane" id="authors" role="tabpanel" aria-labelledby="authors-tab">This is the authors
+                  tab. Here will be where the information will exist for authors.</div>
+                <div class="tab-pane" id="related" role="tabpanel" aria-labelledby="related-tab">This is the authors
+                  tab. Here will be where the information will exist for related.</div>
               </div>
-              
+
             </div>
 
-            <div class = "row">
-              <div class = "container-fluid">
-                <div class = "row">
-                  <div class ="col" style="background-color: #ab7e4a; margin: .5vw; font-size: medium; border: 1px black solid ;"><b>FULL TEXT IN BROWSER --></b></div>
+            <div class="row">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col"
+                    style="background-color: #ab7e4a; margin: .5vw; font-size: medium; border: 1px black solid ;">
+                    <b>FULL TEXT IN BROWSER --></b></div>
                 </div>
 
-                <div class = "row">
-                  <div class ="col" style="background-color: #ab7e4a; margin: .5vw; font-size: medium; border: 1px black solid ;"><b>EXPORT TO ZOTERO --></b></div>
+                <div class="row">
+                  <div class="col"
+                    style="background-color: #ab7e4a; margin: .5vw; font-size: medium; border: 1px black solid ;">
+                    <b>EXPORT TO ZOTERO --></b></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class ="col" >
+      <div class="col">
 
         <!----THIS IS WHERE YOU CAN CHANGE THE PNG if you want to change the main image---->
         <div class="background">
-          <img  src="{{url_for('static', filename='edit.png')}}" width="100%" max-height=".5vh" class="video" alt="">
+          <img src="{{url_for('static', filename='edit.png')}}" width="100%" max-height=".5vh" class="video" alt="">
         </div>
 
 
         <!--This will be for the words that are found and created into buttons the user can click. You can edit it to add more buttons for the video-->
-        <div class="container testimonial-group" style="background-color: #6AB3B3; margin: 12px; border: 1px black solid ;">
-          <div class="text-center" style="font-weight: bold;">Technical Jargon Found. (Horizontally scroll to find more)</div>
-          <div class="row text-center">
-            <div class="col-4" style="border: 1px black solid ;"><button class="button" type="btn btn-primary" style="background-color: #fae08f;">Dark Frame Subtraction</button></div>
-            <div class="col-4" style="border: 1px black solid ;"><button class="button" type="btn btn-primary" style="background-color: #fae08f;">Initial Denoising</button></div>
-            <div class="col-4" style="border: 1px black solid ;"><button class="button" type="btn btn-primary" style="background-color: #fae08f;">Sensor Linearization</button></div>
-            <div class="col-4" style="border: 1px black solid ;"><button class="button" type="btn btn-primary" style="background-color: #f99cc8;">Demosaicking</button></div>
-       
+        <div class="container testimonial-group"
+          style="background-color: #6AB3B3; margin: 12px; border: 1px black solid ;">
+          <div class="text-center" style="font-weight: bold;">Technical Jargon Found. (Horizontally scroll to find more)
           </div>
+          <div class="row text-center">
+            <div class="col-4" style="border: 1px black solid ;"><button class="button" id="1"
+                onclick="selectInsight(this) " type="btn btn-primary" style="background-color: #fae08f;">Dark Frame
+                Subtraction</button></div>
+            <div class="col-4" style="border: 1px black solid ;"><button class="button" id="2"
+                onclick="selectInsight(this) " type="btn btn-primary" style="background-color: #fae08f;">Initial
+                Denoising</button></div>
+            <div class="col-4" style="border: 1px black solid ;"><button class="button" id="3"
+                onclick="selectInsight(this) " type="btn btn-primary" style="background-color: #fae08f;">Sensor
+                Linearization</button></div>
+            <div class="col-4" style="border: 1px black solid ;"><button class="button" id="4"
+                onclick="selectInsight(this)" type="btn btn-primary"
+                style="background-color: #fae08f;">Demosaicking</button></div>
+
+          </div>
+
         </div>
 
-   
 
 
-        <div class = "container-fluid"  style="margin: 4px;">
-          <div class = "row">
 
-            <div class = "col-9"  style="background-color: #6AB3B3; margin: 10px; border: 1px black solid ;"> 
-              <div class ="container-fluid">
-                <div class ="row">
-                  <div class ="col">
-                    <div class = "float-right"  style="color: #b7772a; font-size: xx-large;"><b>Insights</b></div>
-                  </div>               
+        <div class="container-fluid" id = "insightBlock" style="margin: 4px; display: none;">
+          <div class="row">
+
+            <div class="col-9" style="background-color: #6AB3B3; margin: 10px; border: 1px black solid ;">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col">
+                    <div class="float-right" style="color: #b7772a; font-size: xx-large;"><b>Insights</b></div>
+                  </div>
                 </div>
 
-               
-                <div class ="row">
+                
+                <!---This block is for selection purposes only. This should auto generate later--->
+                <span style="display: none;">
+                  <span id="desc1">Desc for button 1</span>
+                  <span id="desc2">Desc for button 2</span>
+                  <span id="desc3">Desc for button 3</span>
+                  <span id="desc4">in this context refers to a digital image process used to reconstruct a full color image from incomplete color samples output originating from an image sensor. </span>
+
+
+
+                </span>
+
+                <div class="row">
 
                   <!--Here is the description that you can manually change for each button you click. It is preset to demosaicking-->
-                  <div class = "col">
-                    <p style="font-weight: bold;">  <span style="color: #ee4e7a;">Demosaicking </span> in this context refers to a digital image process used to reconstruct a full color image from incomplete color samples output originating from an image sensor.</p>
+                  <div class="col">
+                    <p style="font-weight: bold;"> <span id="topic" style="color: #ee4e7a;">Demosaicking </span> <span
+                        id="description">in this context refers to a digital image process used to reconstruct a full
+                        color image from incomplete color samples output originating from an image sensor. </span></p>
+
                   </div>
                 </div>
-                <div class = "container-fluid" style="margin-top: 1vh; margin-bottom: 1vh;">
-                  <div class = "row">
-                    <div class ="col" style="background-color: #9f8955; margin-right: 1vw; font-size: medium; border: 1px black solid ;"><b>More in browser</b></div>
-                    <div class = "col" style="background-color: #9f8955; margin-right: 1vw; font-size: medium; border: 1px black solid ;"><b>Not what you are looking for?</b></div>
+                <div class="container-fluid" style="margin-top: 1vh; margin-bottom: 1vh;">
+                  <div class="row">
+                    <!--This is the website buttons-->
+
+                    <div class="col">
+                      <button id = "Browser" value = "a" onclick="openTab(1, this.value)" class = "btn" type="btn btn-primary" style="background-color: #9f8955; margin-right: 1vw; font-size: medium; border: 1px black solid ; height: 8vh; width: 15vw;">
+                        <b>More in Browser</b>
+                      </button>
+                      
+                    </div>
+                    <div class = "col">
+
+                      <button id = "AlternateBrowser" value = "a" onclick="openTab(2, this.value)" class = "btn" type="btn btn-primary" style="background-color: #9f8955; margin-right: 1vw; font-size: medium; border: 1px black solid ; height: 8vh; width: 15vw;">
+                        <b>Not What You Are Looking For?</b>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class = "col">
-              <div class = "row">
-                <button type="button" class="btn" style=" height: 10vh; width: 5vw; background-color: lightgray; background-image: url(/static/power.png); background-size: contain; background-repeat: no-repeat; background-position: center;"></button>
+            <div class="col">
+              <div class="row">
+                <button type="button" class="btn"
+                  style=" height: 10vh; width: 5vw; background-color: lightgray; background-image: url(/static/power.png); background-size: contain; background-repeat: no-repeat; background-position: center;"></button>
               </div>
-              <div class = "row">
-                <button type="button" class="btn " style="height: 10vh; width: 5vw;  background-color: lightgray; background-image: url(/static/setting.png); background-size: contain; background-repeat: no-repeat; background-position: center;"></button>
+              <div class="row">
+                <button type="button" class="btn "
+                  style="height: 10vh; width: 5vw;  background-color: lightgray; background-image: url(/static/setting.png); background-size: contain; background-repeat: no-repeat; background-position: center;"></button>
               </div>
             </div>
-           
-    
+
+
           </div>
 
         </div>
 
-        
+
 
 
       </div>
     </div>
 
-    
+
 
 
   </div>
 
 
 
-   
+
   <!-- jQuery first, then Popper.js, Bootstrap JS, Google Maps, Font Awesome -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 
-    <script>
-      $(function () {
-        console.log("I am here");
-    $('#myTab li:last-child a').tab('show')
+  <script>
+    $(function () {
+      console.log("I am here");
+      $('#myTab li:last-child a').tab('show')
     })
-    </script>
+  </script>
 
-    <script>
+  <script>
 
+    var previousInsight = document.getElementById("1");
 
+    //This function will open a website in new tab: event code will be 1 or 2 (Google or wikipedia) and search query is the title of selected box.
+    function openTab(eventCode, searchQuery){
+      searchQuery.replace(/\s/g, '+');
+      console.log("EVENT CODE and SEARCH QUERY: " + eventCode + " " + searchQuery);
 
-initDraw(document.getElementById('canvas'));
+      //Wikipedia if 1 if not 
+      if(eventCode == 1){
+        window.open('http://www.wikipedia.org/wiki/'+searchQuery);
+      }
+      
+      //Google if 2
+      if(eventCode == 2){
+        window.open("https://www.google.com/search?q="+searchQuery);
+      }
 
-
-function initDraw(canvas) {
-    var mouse = {
-        x: 0,
-        y: 0,
-        startX: 0,
-        startY: 0
-    };
-    function setMousePosition(e) {
-        var ev = e || window.event; //Moz || IE
-        if (ev.pageX) { //Moz
-            mouse.x = ev.pageX + window.pageXOffset;
-            mouse.y = ev.pageY + window.pageYOffset;
-        } else if (ev.clientX) { //IE
-            mouse.x = ev.clientX + document.body.scrollLeft;
-            mouse.y = ev.clientY + document.body.scrollTop;
-        }
-    };
-
-    var element = null;    
-    canvas.onmousemove = function (e) {
-        setMousePosition(e);
-        if (element !== null) {
-            element.style.width = Math.abs(mouse.x - mouse.startX) + 'px';
-            element.style.height = Math.abs(mouse.y - mouse.startY) + 'px';
-            element.style.left = (mouse.x - mouse.startX < 0) ? mouse.x + 'px' : mouse.startX + 'px';
-            element.style.top = (mouse.y - mouse.startY < 0) ? mouse.y + 'px' : mouse.startY + 'px';
-        }
     }
 
-    canvas.onclick = function (e) {
-        if (element !== null) {
-            element = null;
-            canvas.style.cursor = "default";
-            console.log("finsihed.");
-        } else {
-            console.log("begun.");
-            mouse.startX = mouse.x;
-            mouse.startY = mouse.y;
-            element = document.createElement('div');
-            element.className = 'rectangle'
-            element.style.left = mouse.x + 'px';
-            element.style.top = mouse.y + 'px';
-            canvas.appendChild(element)
-            canvas.style.cursor = "crosshair";
-        }
+    //This function will change the insight box
+    function selectInsight(chosenJargon) {
+
+      document.getElementById("insightBlock").style.display = "block"
+      console.log('PreviousInsight: ' + previousInsight.id);
+      previousInsight.style.background = "#fae08f"
+
+      //This will toggle visibility of chosen id.
+      previousInsight = chosenJargon;
+
+      //Change color of the selected button
+      chosenJargon.style.background = "#f99cc8";
+
+      //Change topic title in insight box
+      let text = chosenJargon.innerText;
+      document.getElementById("topic").innerText = text;
+
+      //Change topic description in insight box
+      let descText = document.getElementById("desc"+chosenJargon.id).innerText;
+      document.getElementById("description").innerText = descText;
+
+      //set the search query for the browser and not what you are looking for button
+      document.getElementById("Browser").value = text;
+      document.getElementById("AlternateBrowser").value = text;
+
+
+
+      
+
+
+
+
+
+
+
     }
-}
+
+
+    /*
+    
+    initDraw(document.getElementById('canvas'));
+    
+    
+    function initDraw(canvas) {
+        var mouse = {
+            x: 0,
+            y: 0,
+            startX: 0,
+            startY: 0
+        };
+        function setMousePosition(e) {
+            var ev = e || window.event; //Moz || IE
+            if (ev.pageX) { //Moz
+                mouse.x = ev.pageX + window.pageXOffset;
+                mouse.y = ev.pageY + window.pageYOffset;
+            } else if (ev.clientX) { //IE
+                mouse.x = ev.clientX + document.body.scrollLeft;
+                mouse.y = ev.clientY + document.body.scrollTop;
+            }
+        };
+    
+        var element = null;
+        canvas.onmousemove = function (e) {
+            setMousePosition(e);
+            if (element !== null) {
+                element.style.width = Math.abs(mouse.x - mouse.startX) + 'px';
+                element.style.height = Math.abs(mouse.y - mouse.startY) + 'px';
+                element.style.left = (mouse.x - mouse.startX < 0) ? mouse.x + 'px' : mouse.startX + 'px';
+                element.style.top = (mouse.y - mouse.startY < 0) ? mouse.y + 'px' : mouse.startY + 'px';
+            }
+        }
+    
+        canvas.onclick = function (e) {
+            if (element !== null) {
+                element = null;
+                canvas.style.cursor = "default";
+                console.log("finsihed.");
+            } else {
+                console.log("begun.");
+                mouse.startX = mouse.x;
+                mouse.startY = mouse.y;
+                element = document.createElement('div');
+                element.className = 'rectangle'
+                element.style.left = mouse.x + 'px';
+                element.style.top = mouse.y + 'px';
+                canvas.appendChild(element)
+                canvas.style.cursor = "crosshair";
+            }
+        }
+    }*/
 
 
 
 
-    </script>
+  </script>
 </body>
 
 
