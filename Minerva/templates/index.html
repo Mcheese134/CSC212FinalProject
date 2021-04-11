@@ -29,7 +29,7 @@
           <img src="{{url_for('static', filename='logo.png')}}" width="100%" height="100%"
             class="d-inline-block align-top" alt="">
 
-          <div class="container-fluid rounded border-dark justify-content-md-center"
+          <div class="container-fluid rounded border-dark justify-content-md-center shadow-lg"
             style="background-color: #6AB3B3; margin: 1vw; border: .1vw #3E8F91 solid;">
             <div class="row justify-content-md-center">
               <div class="title"><b>Current Presentation</b></div>
@@ -80,67 +80,67 @@
                     </li>
                   </ul>
                 </div>
-                <div class="tab-pane" id="authors" role="tabpanel" aria-labelledby="authors-tab">
-                  <p>
-                  <ol>
-                    <li>
-                      Wesley Smith
-                      <ul>
-                        <li>
-                          University of Rochester
-                        </li>
-                        <li>
-                          <a href="https://scholar.google.com/citations?user=Q1Aolo0AAAAJ&hl=en">Google Scholar profile</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      (Author #2 Name)
-                      <ul>
-                        <li>
-                          (Author #2 Affiliation)
-                        </li>
-                        <li>
-                          <a href="https://scholar.google.com">Google Scholar profile</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      (Author #3 Name)
-                      <ul>
-                        <li>
-                          (Author #3 Affiliation)
-                        </li>
-                        <li>
-                          <a href="https://scholar.google.com">Google Scholar profile</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      (Author #4 Name)
-                      <ul>
-                        <li>
-                          (Author #4 Affiliation)
-                        </li>
-                        <li>
-                          <a href="https://scholar.google.com">Google Scholar profile</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      (Author #5 Name)
-                      <ul>
-                        <li>
-                          (Author #5 Affiliation)
-                        </li>
-                        <li>
-                          <a href="https://scholar.google.com">Google Scholar profile</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ol>
+                <div class="tab-pane" id="authors" role="tabpanel" aria-labelledby="authors-tab"  >
+                    <ol>
+                      <li>
+                        Wesley Smith
+                        <ul>
+                          <li>
+                            University of Rochester
+                          </li>
+                          <li>
+                            <a href="https://scholar.google.com/citations?user=Q1Aolo0AAAAJ&hl=en">Google Scholar profile</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        (Author #2 Name)
+                        <ul>
+                          <li>
+                            (Author #2 Affiliation)
+                          </li>
+                          <li>
+                            <a href="https://scholar.google.com">Google Scholar profile</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        (Author #3 Name)
+                        <ul>
+                          <li>
+                            (Author #3 Affiliation)
+                          </li>
+                          <li>
+                            <a href="https://scholar.google.com">Google Scholar profile</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        (Author #4 Name)
+                        <ul>
+                          <li>
+                            (Author #4 Affiliation)
+                          </li>
+                          <li>
+                            <a href="https://scholar.google.com">Google Scholar profile</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        (Author #5 Name)
+                        <ul>
+                          <li>
+                            (Author #5 Affiliation)
+                          </li>
+                          <li>
+                            <a href="https://scholar.google.com">Google Scholar profile</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ol>
+              
                 </div>
-                <div class="tab-pane" id="related" role="tabpanel" aria-labelledby="related-tab">
+                <div class="tab-pane" id="related" role="tabpanel" aria-labelledby="related-tab" >
                   <ol>
                     <li>
                       (Related Paper #1 Title):
@@ -179,23 +179,27 @@
                 </div>
               </div>
 
+
             </div>
 
-            <div class="row">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col"
-                    style="background-color: #ab7e4a; margin: .5vw; font-size: medium; border: 1px black solid ;">
-                    <b>FULL TEXT IN BROWSER --></b></div>
-                </div>
+          
 
-                <div class="row">
-                  <div class="col"
-                    style="background-color: #ab7e4a; margin: .5vw; font-size: medium; border: 1px black solid ;">
-                    <b>EXPORT TO ZOTERO --></b></div>
-                </div>
+            <div class = "row">
+              <div class = "col">
+                <button class = "Button3d" style="background-color: #ab7e4a;"><b>FULL TEXT IN BROWSER --></b></button>
               </div>
             </div>
+
+            <br>
+
+            <div class = "row"  >
+              <div class = "col">
+                <button class = "Button3d" style="background-color: #ab7e4a;"><b>EXPORT TO ZOTERO --></b></button>
+              </div>
+            </div>
+         
+            <br>
+
           </div>
         </div>
       </div>
@@ -203,7 +207,7 @@
 
         <!----THIS IS WHERE YOU CAN CHANGE THE PNG if you want to change the main image---->
         <div class="background">
-          <img src="{{url_for('static', filename='edit.png')}}" width="100%" max-height=".5vh" class="video" alt="">
+          <img src="{{url_for('static', filename='edit.png')}}" width="100%" height = "425" class="video" alt="">
         </div>
 
 
@@ -213,16 +217,16 @@
           <div class="text-center" style="font-weight: bold;">Technical Jargon Found. (Horizontally scroll to find more)
           </div>
           <div class="row text-center">
-            <div class="col-4" style="border: 1px black solid ;"><button class="button" id="1"
+            <div class="col-4" style="border: 1px black solid ;"><button class="Button3d" id="1" 
                 onclick="selectInsight(this) " type="btn btn-primary" style="background-color: #fae08f;">Dark Frame
                 Subtraction</button></div>
-            <div class="col-4" style="border: 1px black solid ;"><button class="button" id="2"
+            <div class="col-4" style="border: 1px black solid ;"><button class="Button3d" id="2"
                 onclick="selectInsight(this) " type="btn btn-primary" style="background-color: #fae08f;">Initial
                 Denoising</button></div>
-            <div class="col-4" style="border: 1px black solid ;"><button class="button" id="3"
+            <div class="col-4" style="border: 1px black solid ;"><button class="Button3d" id="3"
                 onclick="selectInsight(this) " type="btn btn-primary" style="background-color: #fae08f;">Sensor
                 Linearization</button></div>
-            <div class="col-4" style="border: 1px black solid ;"><button class="button" id="4"
+            <div class="col-4" style="border: 1px black solid ;"><button class="Button3d" id="4"
                 onclick="selectInsight(this)" type="btn btn-primary"
                 style="background-color: #fae08f;">Demosaicking</button></div>
 
@@ -271,14 +275,14 @@
                     <!--This is the website buttons-->
 
                     <div class="col">
-                      <button id = "Browser" value = "a" onclick="openTab(1, this.value)" class = "btn" type="btn btn-primary" style="background-color: #9f8955; margin-right: 1vw; font-size: medium; border: 1px black solid ; height: 8vh; width: 15vw;">
+                      <button id = "Browser" value = "a" onclick="openTab(1, this.value)" class = "Button3d" type="btn btn-primary" style="background-color: #9f8955; margin-right: 1vw; font-size: 30; border: 1px black solid ; height: 8vh; width: 15vw;">
                         <b>More in Browser</b>
                       </button>
                       
                     </div>
                     <div class = "col">
 
-                      <button id = "AlternateBrowser" value = "a" onclick="openTab(2, this.value)" class = "btn" type="btn btn-primary" style="background-color: #9f8955; margin-right: 1vw; font-size: medium; border: 1px black solid ; height: 8vh; width: 15vw;">
+                      <button id = "AlternateBrowser" value = "a" onclick="openTab(2, this.value)" class = "Button3d" type="btn btn-primary" style="background-color: #9f8955; margin-right: 1vw; font-size: 30; border: 1px black solid ; height: 8vh; width: 21vw;">
                         <b>Not What You Are Looking For?</b>
                       </button>
                     </div>
@@ -290,11 +294,11 @@
             <div class="col">
               <div class="row">
                 <button type="button" class="btn"
-                  style=" height: 10vh; width: 5vw; background-color: lightgray; background-image: url(/static/power.png); background-size: contain; background-repeat: no-repeat; background-position: center;"></button>
+                  style=" height: 10vh; width: 5vw; margin: 10; background-color: lightgray; background-image: url(/static/power.png); background-size: contain; background-repeat: no-repeat; background-position: center;"></button>
               </div>
               <div class="row">
-                <button type="button" class="btn "
-                  style="height: 10vh; width: 5vw;  background-color: lightgray; background-image: url(/static/setting.png); background-size: contain; background-repeat: no-repeat; background-position: center;"></button>
+                <button type="button" class="btn"
+                  style="height: 10vh; width: 5vw;  margin: 10; background-color: lightgray; background-image: url(/static/setting.png); background-size: contain; background-repeat: no-repeat; background-position: center;"></button>
               </div>
             </div>
 
@@ -308,9 +312,6 @@
 
       </div>
     </div>
-
-
-
 
   </div>
 
@@ -330,7 +331,6 @@
 
   <script>
     $(function () {
-      console.log("I am here");
       $('#myTab li:last-child a').tab('show')
     })
   </script>
@@ -353,6 +353,10 @@
       if(eventCode == 2){
         window.open("https://www.google.com/search?q="+searchQuery);
       }
+
+      //Research Browser if 3
+
+      //Zotero in browser if 4
 
     }
 
