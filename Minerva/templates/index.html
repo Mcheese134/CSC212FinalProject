@@ -225,27 +225,27 @@
 
           {% for word in uncommonWords %}
 
-          {% set curr = loop.index %}
 
-          
+
           <!--This is for every 4 items. Correspond to bootstrap grid: only 4 colums per row-->
 
           {% if loop.index % 5 == 0%}
 
+            {% set curr = loop.index %}
 
-            <div class="row text-center" style="margin-top: 1vh;">
+
+            <div class="row text-center" style="margin-top: 1vh; border: 1px black solid ;">
 
               {% for word in myWords %}
-                {% set lop = curr + loop.index-1%}
+                {% set lop = loop.index + curr - 5%}
                 {{lop}}
 
-                <div class="col-4" style="border: 1px black solid ;"><button class="Button3d" id="1"
+                <div class="col-4" style="border: 1px black solid ;"><button class="Button3d" id="{{lop}}"
                 onclick="selectInsight(this) " type="btn btn-primary" style="background-color: #fae08f;">{{word}}
                 </button>
                 </div>
               {% endfor %}
 
-              {% set curr = loop.index %}
 
             </div>
 
@@ -260,12 +260,12 @@
 
           {%if loop.index == uncommonWords|length%}
 
-          <div class="row text-center" style="margin-top: 1vh;">
+          <div class="row text-center" style="margin-top: 1vh; border: 1px black solid ;">
 
-            {% set lop = curr + loop.index-1%}
+            {% set lop = loop.index + curr - 5%}
 
             {% for word in myWords %}
-              <div class="col-4" style="border: 1px black solid ;"><button class="Button3d" id="1"
+              <div class="col-4" style="border: 1px black solid ;"><button class="Button3d" id="{{lop}}"
               onclick="selectInsight(this) " type="btn btn-primary" style="background-color: #fae08f;">{{word}}
               </button>
               </div>
