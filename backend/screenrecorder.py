@@ -22,6 +22,7 @@ import cv2
 import numpy as np
 import time
 import pytesseract
+import json
 from PIL import Image
 import nltk
 from nltk.stem.snowball import SnowballStemmer
@@ -32,7 +33,22 @@ def screenRecord(screenCoord):
     #OCR Directory
     #pytesseract.pytesseract.tesseract_cmd = r"C:\Users\Nasty\AppData\Local\Programs\Tesseract-OCR\tesseract.exe"
 
-    print("I have coord: " + screenCoord)
+    screenCoord =  json.loads(screenCoord)
+    print("I have coord: " + str(screenCoord))
+
+    print("Button Click Coord: " + str(screenCoord[0][0]))
+
+    print("Top Left Coord: " + str(screenCoord[1][0]))
+
+    print("Top Right Coord: " + str(screenCoord[2][0]))
+
+    print("Bottom Left Coord: " + str(screenCoord[3][0]))
+
+
+    print("Bottom Right Coord: " + str(screenCoord[4][0]))
+
+
+
 
     sno = nltk.stem.SnowballStemmer('english')
     parser = WiktionaryParser()

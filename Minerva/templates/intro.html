@@ -130,7 +130,8 @@
     }
 
     function goToHome(){
-        document.cookie = "coord="+arrayVal;
+        var serial = JSON.stringify(arrayVal)
+        document.cookie = "coord="+serial;
 
         window.location.href = "http://127.0.0.1:5000/"; //will redirect to your blog page (an ex: blog.html)
 
