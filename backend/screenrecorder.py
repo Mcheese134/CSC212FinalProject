@@ -9,12 +9,7 @@
 
 # TODO 
 # Drop down box to get domain of presentation
-# Return definition based on domain, not fully implemented
-# Move code from while loop into a function call
 # Get user coordinates for screenshot
-# Get topic of presentation from slide 1
-# Return first def if specific definition isn't available
-# Return wiktionary link for the word in question, for frontend to use
 
 
 import pyautogui
@@ -94,14 +89,34 @@ def screenRecord(screenCoord):
                     if (k == 'definitions'):
                         listStuff = v[0].get('text')
                         for i in listStuff:
-                            if domain == "computing" and "(computing)" in i: 
+                            if domain == "computing" and (("computing" in i) or ("computer science" in i)):
                                 print(i) # Prints the definition with (computing)
+                                specialDef = True
+                                desc.append(i)
+                                break
+                            elif domain == "mathematics" and "mathematics" in i:
+                                print(i) # Prints the definition with (mathematics)
+                                specialDef = True
+                                desc.append(i)
+                                break
+                            elif domain == "physics" and "physics" in i:
+                                print(i) # Prints the definition with (physics)
+                                specialDef = True
+                                desc.append(i)
+                                break
+                            elif domain == "biology" and "biology" in i:
+                                print(i) # Prints the definition with (biology)
+                                specialDef = True
+                                desc.append(i)
+                                break
+                            elif domain == "chemistry" and "chemistry" in i:
+                                print(i) # Prints the definition with (chemistry)
                                 specialDef = True
                                 desc.append(i)
                                 break
                         if specialDef == False: # If program does not find a definition specific to the domain
                             print(listStuff) # This prints all definitions, can be changed to only first definition
-                            desc.append(listStuff[0])
+                            desc.append(listStuff[1])
             frontend.append(desc)
                         
         time.sleep(2)
