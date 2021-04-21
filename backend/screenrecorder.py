@@ -33,27 +33,17 @@ def screenRecord(screenCoord):
     #OCR Directory
     #pytesseract.pytesseract.tesseract_cmd = r"C:\Users\Nasty\AppData\Local\Programs\Tesseract-OCR\tesseract.exe"
 
+    #Data is split between in order: button point (don't use), top left, top right, bottom left, and bottom right
     screenCoord =  json.loads(screenCoord)
     print("I have coord: " + str(screenCoord))
-
-    print("Button Click Coord: " + str(screenCoord[0][0]))
-
-    print("Top Left Coord: " + str(screenCoord[1][0]))
-
-    print("Top Right Coord: " + str(screenCoord[2][0]))
-
-    print("Bottom Left Coord: " + str(screenCoord[3][0]))
-
-
-    print("Bottom Right Coord: " + str(screenCoord[4][0]))
-
-
+    topLeft = screenCoord[1]
+    bottomRight = screenCoord[4]
 
 
     sno = nltk.stem.SnowballStemmer('english')
     parser = WiktionaryParser()
 
-    # Front-End Variable
+    # Front-End Variable - This will get slideNum, definitions, and words
     frontend = []
 
     with open("wordList.txt") as f:
@@ -68,9 +58,13 @@ def screenRecord(screenCoord):
 
     count = 0
     while count != 1:
-        img = pyautogui.screenshot(region=(0,100,1280, 940)) # (left, top, width, height)
+        img = pyautogui.screenshot(region=(topLeft[0],topLeft[1],bottomRight[0]-topLeft[0], bottomRight[1]-topLeft[1])) # (left, top, width, height)
 
         img.save("screenshot.png")
+        
+        #This is for front-end
+        img.save("static/screenshot.png")
+
         image = cv2.imread("screenshot.png")
         gray_img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         threshold_img = cv2.threshold(gray_img, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]

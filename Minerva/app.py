@@ -12,7 +12,14 @@ app = Flask(__name__)
 @app.route("/")
 def index():
 
-  #Query String
+    return render_template('intro.html')
+
+
+ 
+
+@app.route("/home")
+def intro():
+ #Query String
   coord = request.cookies.get('coord')
 
 
@@ -25,11 +32,6 @@ def index():
 
 
   print("UncommonWords: " + str(len(uncommonWords)))
-  return render_template('index.html', slideNum = slideNum, uncommonWords = uncommonWords, desc = desc)
-
-@app.route("/intro")
-def intro():
-  return render_template('intro.html')
-  
+  return render_template('index.html', slideNum = slideNum, uncommonWords = uncommonWords, desc = desc)  
 if __name__ == "__main__":
   app.run()
