@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="/static/stylesheets/styles.css" media="screen" type="text/css">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
 
@@ -27,26 +26,126 @@
         </div>
 
         <div class = "row">
-            <div class="col" style="text-align: center;">
-                <button class="Button3d" value="" onclick="openTab(3, this.value)"
-                  style="background-color: #ab7e4a;"><b>SELECT PRESENTATION AREA</b></button>
+            <div class="col" ></div>
+
+            <div class = "col" style="text-align: center;">
+                <button class="Button3d" value="" onclick="selectPresArea()"
+                style="background-color: #ab7e4a;"><b>SELECT PRESENTATION AREA</b></button>
             </div>
+
+            <div class = "col"></div>
+
         </div>
-        <div class="dropdown">
-            <button class="dropbtn">SELECT PRESENTATION TOPIC</button>
-            <div class="dropdown-content">
-              <a href="#">Computer Science</a>
-              <a href="#">Physics</a>
-              <a href="#">Mathematics</a>
-              <a href = "#">Other</a>
+
+        <div class = "row">
+            <div class = "col"></div>
+            <div class = "col" id = "prompt" style="text-align: center;"></div>
+            <div class = "col"></div>
+
+        </div>
+
+        <div class = "row">
+            <div class = "col"></div>
+            <div class = "col" style="text-align: center;"></div>
+            <div class = "col"></div>        </div>
+
+        <div class = "row" style = "margin-top: 2vh;">
+            <div class = "col"></div>
+
+            <div class = "col" style="text-align: center;">
+                <div class="dropdown show">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        SELECT PRESENTATION TOPIC
+                    </a>
+                    
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id = "drop">
+                      <a class="dropdown-item" href="#">Computer Science</a>
+                      <a class="dropdown-item" href="#">Physics</a>
+                      <a class="dropdown-item" href="#">Mathematic</a>
+                      <a class="dropdown-item" href="#">Other</a>
+                    </div>
+                  </div>
             </div>
-          </div> 
+
+            <div class = "col"></div>
+
+        </div>
+
+        <div class = "row" style = "margin-top: 2vh;">
+            <div class = "col"></div>
+            <div class = "col" id = "topicSelect"></div>
+            <div class = "col"></div>
+
+        </div>
+
+        <div class = "row" id = "home" style="visibility: hidden;">
+            <div class = "col"></div>
+            <div class = "col"></div>
+            <div class = "col" style="text-align: center;"><button class="Button3d" onclick="goToHome()" value="" 
+                style="background-color: #ab7e4a;"><b>Next Page</b></button></div>        
+        </div>
+
+     
+      
+
     </div>
 
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <script>
+
+    var count = 0
+    var arrayVal = []
+    var arrayPrompt = ["Top Left of Presentation Screen", "Top Right of Presentation Screen", "Bottom Left of Presentation Screen", "Bottom Right of Presentation Screen", "Done With Selection"]
+    var select = "";
+
+    $(document).ready(function(){
+        select = $('#drop').text();
+        console.log("Select: " + select);
+    });
+
+    function returnMousePause1(event) {
+
+        var point = [event.clientX, event.clientY];
+
+        arrayVal.push(point);
+
+        document.getElementById("prompt").innerText = arrayPrompt[count];
+
+
+
+        if(count == 4){
+            count = 0;
+            document.removeEventListener("click", returnMousePause1)
+            document.getElementById("home").style.visibility = "visible";
+            return;
+        }
+
+        count++;
+
+
+    }
+
+    function goToHome(){
+        document.cookie = "username=John Doe";
+
+        window.location.href = "http://127.0.0.1:5000/?coord[]="+arrayVal; //will redirect to your blog page (an ex: blog.html)
+
+    }    
+
+    function selectPresArea(){
+        document.addEventListener("click", returnMousePause1);
+    
+    }
+
+
+/*
         setTimeout(function () {
             window.location.href = "http://127.0.0.1:5000/"; //will redirect to your blog page (an ex: blog.html)
-        }, 2000);
+        }, 2000);*/
     </script>
 </body>
 
