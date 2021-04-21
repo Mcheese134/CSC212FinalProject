@@ -13,12 +13,11 @@ app = Flask(__name__)
 def index():
 
   #Query String
-  coord = request.args.get('coord')
-  print("Coord: " + str(coord))
+  coord = request.cookies.get('coord')
 
 
   #Backend Data
-  attributes = screenRecord()
+  attributes = screenRecord(coord)
   slideNum = attributes[0]
   uncommonWords = attributes[1]
   desc = attributes[2]

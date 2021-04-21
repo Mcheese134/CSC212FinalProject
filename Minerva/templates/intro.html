@@ -130,9 +130,9 @@
     }
 
     function goToHome(){
-        document.cookie = "username=John Doe";
+        document.cookie = "coord="+arrayVal;
 
-        window.location.href = "http://127.0.0.1:5000/?coord[]="+arrayVal; //will redirect to your blog page (an ex: blog.html)
+        window.location.href = "http://127.0.0.1:5000/"; //will redirect to your blog page (an ex: blog.html)
 
     }    
 

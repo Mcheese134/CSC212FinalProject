@@ -27,10 +27,12 @@ import nltk
 from nltk.stem.snowball import SnowballStemmer
 from wiktionaryparser import WiktionaryParser
 
-def screenRecord():
+def screenRecord(screenCoord):
 
     #OCR Directory
     #pytesseract.pytesseract.tesseract_cmd = r"C:\Users\Nasty\AppData\Local\Programs\Tesseract-OCR\tesseract.exe"
+
+    print("I have coord: " + screenCoord)
 
     sno = nltk.stem.SnowballStemmer('english')
     parser = WiktionaryParser()
