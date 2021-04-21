@@ -13,8 +13,9 @@ def index():
   attributes = screenRecord()
   slideNum = attributes[0]
   uncommonWords = attributes[1]
+  desc = attributes[2]
   print("UncommonWords: " + str(len(uncommonWords)))
-  return render_template('index.html', slideNum = slideNum, uncommonWords = uncommonWords)
+  return render_template('index.html', slideNum = slideNum, uncommonWords = uncommonWords, desc = desc)
 
 @app.route("/intro")
 def intro():

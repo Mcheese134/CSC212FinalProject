@@ -237,8 +237,17 @@
             <div class="row text-center" style="margin-top: 1vh; border: 1px black solid ;">
 
               {% for word in myWords %}
-                {% set lop = loop.index + curr - 5%}
-                {{lop}}
+
+                {% if loop.index >= 5 %}
+                  {% set lop = loop.index + curr - 5%}
+                {% endif %}
+
+
+                {% if loop.index < 5 %}
+                  {% set lop = loop.index%}
+                {% endif %}
+
+
 
                 <div class="col-4" style="border: 1px black solid ;"><button class="Button3d" id="{{lop}}"
                 onclick="selectInsight(this) " type="btn btn-primary" style="background-color: #fae08f;">{{word}}
@@ -262,7 +271,15 @@
 
           <div class="row text-center" style="margin-top: 1vh; border: 1px black solid ;">
 
-            {% set lop = loop.index + curr - 5%}
+            {% if loop.index >= 5 %}
+              {% set lop = loop.index + curr - 5%}
+            {% endif %}
+
+
+            {% if loop.index < 5 %}
+              {% set lop = loop.index%}
+            {% endif %}
+            
 
             {% for word in myWords %}
               <div class="col-4" style="border: 1px black solid ;"><button class="Button3d" id="{{lop}}"
@@ -291,11 +308,13 @@
 
                 <!---This block is for selection purposes only. This should auto generate later--->
                 <span style="display: none;">
-                  <span id="desc1">Desc for button 1</span>
-                  <span id="desc2">Desc for button 2</span>
-                  <span id="desc3">Desc for button 3</span>
-                  <span id="desc4">in this context refers to a digital image process used to reconstruct a full color
-                    image from incomplete color samples output originating from an image sensor. </span>
+
+                  {% for des in desc%}
+                    <span id="desc{{loop.index}}">{{des}}</span>
+
+                  {% endfor %}
+
+                 
 
 
 
@@ -358,6 +377,7 @@
       </div>
     </div>
 
+   
   </div>
 
 

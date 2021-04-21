@@ -73,20 +73,24 @@ def screenRecord():
             frontend.append(slideNum)
             frontend.append(uncommonWordsOnSlide)
 
+            desc = []
             
-         #   for i in uncommonWordsOnSlide:
-          #      specialDef = False # Set this to true if program finds a domain-specific definition
-           #     word = parser.fetch(i)
-            #    for k, v in word[0].items():
-             #       if (k == 'definitions'):
-              #          listStuff = v[0].get('text')
-               #         for i in listStuff:
-                #            if domain == "computing" and "(computing)" in i: 
-                 #               print(i) # Prints the definition with (computing)
-                  #              specialDef = True
-                   #             break
-                    #    if specialDef == False: # If program does not find a definition specific to the domain
-                     #       print(listStuff) # This prints all definitions, can be changed to only first definition
+            for i in uncommonWordsOnSlide:
+                specialDef = False # Set this to true if program finds a domain-specific definition
+                word = parser.fetch(i)
+                for k, v in word[0].items():
+                    if (k == 'definitions'):
+                        listStuff = v[0].get('text')
+                        for i in listStuff:
+                            if domain == "computing" and "(computing)" in i: 
+                                print(i) # Prints the definition with (computing)
+                                specialDef = True
+                                desc.append(i)
+                                break
+                        if specialDef == False: # If program does not find a definition specific to the domain
+                            print(listStuff) # This prints all definitions, can be changed to only first definition
+                            desc.append(listStuff[0])
+            frontend.append(desc)
                         
         time.sleep(2)
         count+=1
