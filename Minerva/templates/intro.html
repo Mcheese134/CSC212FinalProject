@@ -123,19 +123,6 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 
-<script type=text/javascript>
-    $(function() {
-      $('a#test').on('click', function(e) {
-        e.preventDefault()
-        $.getJSON('/background_process_test',
-            function(data) {
-                console.log("Data: " + String(data))
-          //do nothing
-        });
-        return false;
-      });
-    });
-</script>
 
     <script>
 
@@ -144,13 +131,11 @@
     var arrayPrompt = ["Top Left of Presentation Screen", "Top Right of Presentation Screen", "Bottom Left of Presentation Screen", "Bottom Right of Presentation Screen", "Done With Selection"]
     var select = "";
 
-    $(document).ready(function(){
-        select = $('#drop').text();
-        console.log("Select: " + select);
-    });
 
     function returnMousePause1(event) {
 
+
+ 
     
     
         var point = [event.clientX, event.clientY];
@@ -185,6 +170,19 @@
 
     function selectPresArea(){
         document.addEventListener("click", returnMousePause1);
+
+        $.ajax({
+	        type : "POST",
+	        url : '/background_process_test',
+	        dataType: "json",
+	        data: JSON.stringify("you can put in a variable in here to send data with the request"),
+	        contentType: 'application/json;charset=UTF-8',
+	        success: function (data) {
+                
+
+		        console.log("DATA: " + String(data));
+		    }
+	    });
     
     }
 

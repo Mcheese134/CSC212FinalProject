@@ -1,5 +1,7 @@
-from flask import Flask, render_template, request;
+from flask import Flask, render_template, request, jsonify;
 from flask_bootstrap import Bootstrap;
+import json
+
 
 
 import sys;
@@ -14,33 +16,42 @@ from screenrecorder import screenRecord;
 xs = []
 ys = []
 
+coord = []
+
 listener = 0
 
 def activate():
   global listener
+  global coord
+  global xs
   listener = Listener(on_click=on_click)
-
   listener.start()
+  listener.join()
+
+
+
 
 
 
 
 
 def on_click(x, y, button, pressed):
-
     global xs
     global ys
-    global listener
+
+   
     if button == Button.left and pressed:
-        if len(xs) < 1 and len(ys) < 1:
+        if len(xs) < 2 and len(ys) < 2:
+
             xs.append(x)
             ys.append(y)
             print(xs, ys)
         else:
-            xs.append(x)
-            ys.append(y)
-            print(xs, ys)
-            listener.stop()
+          listener.stop()
+
+          print("XS: " + str(xs))
+          return False
+
             
   
 
@@ -53,12 +64,25 @@ def index():
 
 
  #background process happening without any refreshing
-@app.route('/background_process_test')
+@app.route('/background_process_test', methods=['GET', 'POST'])
 def background_process_test():
-  
-  activate()
 
-  return "Hello world"
+  global xs
+  
+
+  if request.method == 'POST':
+
+    xs = []
+    ys = []
+
+    activate()
+
+    print("XSA: " + str(xs))
+
+
+
+    return json.dumps(coord)
+  
 
 
 
