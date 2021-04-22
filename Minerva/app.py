@@ -38,18 +38,20 @@ def activate():
 def on_click(x, y, button, pressed):
     global xs
     global ys
+    global coord
 
    
     if button == Button.left and pressed:
-        if len(xs) < 2 and len(ys) < 2:
-
+        if len(xs) < 1 and len(ys) < 1:
             xs.append(x)
             ys.append(y)
             print(xs, ys)
         else:
+          xs.append(x)
+          ys.append(y)
+          coord.append(xs)
+          coord.append(ys)
           listener.stop()
-
-          print("XS: " + str(xs))
           return False
 
             
@@ -66,18 +68,19 @@ def index():
  #background process happening without any refreshing
 @app.route('/background_process_test', methods=['GET', 'POST'])
 def background_process_test():
-
+  global coord
   global xs
-  
+  global ys
 
   if request.method == 'POST':
 
+ 
+    coord = []
     xs = []
     ys = []
-
     activate()
 
-    print("XSA: " + str(xs))
+    print("coord: " + str(coord))
 
 
 

@@ -41,7 +41,7 @@
 
         <div class = "row">
             <div class = "col"></div>
-            <div class = "col" id = "prompt" style="text-align: center;"></div>
+            <div class = "col" id = "prompt" style="text-align: center;">Select top left and bottom right of presentation area</div>
             <div class = "col"></div>
 
         </div>
@@ -100,20 +100,8 @@
                 Loading.. Please Wait
               </button></div>        
         </div>
-
-      
-    
-
-    <div class='container'>
-        <h3>Test</h3>
-            <form>
-                <a href=# id=test><button class='btn btn-default'>Test</button></a>
-            </form>
-    
-    </div>
      
-      
-
+    
     </div>
 
 
@@ -131,13 +119,29 @@
     var arrayPrompt = ["Top Left of Presentation Screen", "Top Right of Presentation Screen", "Bottom Left of Presentation Screen", "Bottom Right of Presentation Screen", "Done With Selection"]
     var select = "";
 
+    
 
     function returnMousePause1(event) {
 
 
  
+        $.ajax({
+	        type : "POST",
+	        url : '/background_process_test',
+	        dataType: "json",
+	        data: JSON.stringify("you can put in a variable in here to send data with the request"),
+	        contentType: 'application/json;charset=UTF-8',
+	        success: function (data) {
+
+                arrayVal.push(data[0])
+                arrayVal.push(data[1])
+                
+                document.removeEventListener("click", returnMousePause1)
+                document.getElementById("home").style.visibility = "visible";
+		    }
+	    });
     
-    
+        /*
         var point = [event.clientX, event.clientY];
 
         arrayVal.push(point);
@@ -153,7 +157,7 @@
             return;
         }
 
-        count++;
+        count++;*/
         
 
     }
@@ -171,18 +175,7 @@
     function selectPresArea(){
         document.addEventListener("click", returnMousePause1);
 
-        $.ajax({
-	        type : "POST",
-	        url : '/background_process_test',
-	        dataType: "json",
-	        data: JSON.stringify("you can put in a variable in here to send data with the request"),
-	        contentType: 'application/json;charset=UTF-8',
-	        success: function (data) {
-                
-
-		        console.log("DATA: " + String(data));
-		    }
-	    });
+    
     
     }
 

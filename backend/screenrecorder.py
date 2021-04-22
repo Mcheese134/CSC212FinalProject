@@ -31,11 +31,24 @@ def screenRecord(screenCoord):
     #OCR Directory
     #pytesseract.pytesseract.tesseract_cmd = r"C:\Users\Nasty\AppData\Local\Programs\Tesseract-OCR\tesseract.exe"
 
-    #Data is split between in order: button point (don't use), top left, top right, bottom left, and bottom right
+    #Data is split between in order: x coordinates array and y coordinate array. They are in order
     screenCoord =  json.loads(screenCoord)
     print("I have coord: " + str(screenCoord))
-    topLeft = screenCoord[1]
-    bottomRight = screenCoord[4]
+    top = screenCoord[1][0]
+    bottom = screenCoord[1][1]
+    left = screenCoord[0][0]
+    right = screenCoord[0][1]
+   
+    width = abs(right - left)
+    height = abs(top - bottom)
+
+    print("Left: " + str(left))
+    print("Top: " + str(top))
+    print("Width: " + str(width))
+    print("Height: " + str(height))
+
+
+
 
 
     sno = nltk.stem.SnowballStemmer('english')
@@ -56,7 +69,7 @@ def screenRecord(screenCoord):
 
     count = 0
     while count != 1:
-        img = pyautogui.screenshot(region=(topLeft[0],topLeft[1],bottomRight[0]-topLeft[0], bottomRight[1]-topLeft[1])) # (left, top, width, height)
+        img = pyautogui.screenshot(region=(left,top,width, height) )# (left, top, width, height)
 
         img.save("screenshot.png")
         
@@ -66,7 +79,7 @@ def screenRecord(screenCoord):
         image = cv2.imread("screenshot.png")
         gray_img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         threshold_img = cv2.threshold(gray_img, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
-        im = Image.open("slide4.png")
+        im = Image.open("screenshot.png")
         newText = pytesseract.image_to_string(im).strip().lower().split()
 
         if (newText != lastText):
