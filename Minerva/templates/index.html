@@ -283,7 +283,7 @@
             
 
             {% for word in myWords %}
-              <div class="col-4" style="border: 1px black solid ;"><button class="Button3d" id="{{lop}}"
+              <div class="col-4 col-md-4" style="border: 1px black solid ;"><button class="Button3d" id="{{lop}}"
               onclick="selectInsight(this) " type="btn btn-primary" style="background-color: #fae08f;">{{word}}
               </button>
               </div>
@@ -335,7 +335,7 @@
                   <div class="row">
                     <!--This is the website buttons-->
 
-                    <div class="col">
+                    <div class="col-6">
                       <button id="Browser" value="a" onclick="openTab(1, this.value)" class="Button3d"
                         type="btn btn-primary"
                         style="background-color: #9f8955; margin-right: 1vw; font-size: 30; border: 1px black solid ; height: 8vh; width: 15vw;">
@@ -343,7 +343,7 @@
                       </button>
 
                     </div>
-                    <div class="col">
+                    <div class="col-6">
 
                       <button id="AlternateBrowser" value="a" onclick="openTab(2, this.value)" class="Button3d"
                         type="btn btn-primary"

@@ -23,6 +23,9 @@ import nltk
 from nltk.stem.snowball import SnowballStemmer
 from wiktionaryparser import WiktionaryParser
 
+
+
+
 def screenRecord(screenCoord):
 
     #OCR Directory
