@@ -22,6 +22,8 @@ from PIL import Image
 import nltk
 from nltk.stem.snowball import SnowballStemmer
 from wiktionaryparser import WiktionaryParser
+import subprocess
+
 
 
 
@@ -31,8 +33,19 @@ def screenRecord(screenCoord):
     #OCR Directory
     #pytesseract.pytesseract.tesseract_cmd = r"C:\Users\Nasty\AppData\Local\Programs\Tesseract-OCR\tesseract.exe"
 
+    screen = pyautogui.size()
+    print("SCREEN: " + str(screen))
+
+    
+
     #Data is split between in order: x coordinates array and y coordinate array. They are in order
     screenCoord =  json.loads(screenCoord)
+
+    if subprocess.call("system_profiler SPDisplaysDataType | grep -i 'retina'", shell= True) == 0: 
+            for i in range(len(screenCoord)):
+                for j in range(len(screenCoord[i])):
+                   screenCoord[i][j] = screenCoord[i][j] * 2.0
+
     print("I have coord: " + str(screenCoord))
     top = screenCoord[1][0]
     bottom = screenCoord[1][1]
@@ -42,13 +55,8 @@ def screenRecord(screenCoord):
     width = abs(right - left)
     height = abs(top - bottom)
 
-    print("Left: " + str(left))
-    print("Top: " + str(top))
-    print("Width: " + str(width))
-    print("Height: " + str(height))
 
-
-
+    
 
 
     sno = nltk.stem.SnowballStemmer('english')
@@ -65,16 +73,34 @@ def screenRecord(screenCoord):
     slideNum = 0
     domain = "computing" # Have this domain be set by the user
 
+
+
     
 
     count = 0
     while count != 1:
-        img = pyautogui.screenshot(region=(left,top,width, height) )# (left, top, width, height)
 
+        
+        print("Left: " + str(left))
+        print("Right: " + str(right))
+
+        print("Top: " + str(top))
+        print("Bottom: " + str(bottom))
+
+        print("Width: " + str(width))
+        print("Height: " + str(height))
+
+        print("BEFORE SCREENSHOT")
+
+        
+    
+        img = pyautogui.screenshot(region=(left,top,width, height) )# (left, top, width, height)
         img.save("screenshot.png")
+        img.save("static/screenshot.png")
+
+        # (left, top, width, height)
         
         #This is for front-end
-        img.save("static/screenshot.png")
 
         image = cv2.imread("screenshot.png")
         gray_img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -99,6 +125,7 @@ def screenRecord(screenCoord):
             desc = []
             
             for i in uncommonWordsOnSlide:
+                
                 specialDef = False # Set this to true if program finds a domain-specific definition
                 word = parser.fetch(i)
                 for k, v in word[0].items():
