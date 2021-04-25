@@ -20,7 +20,7 @@
 
 <body class="containerdetails">
 
-
+  <!--This will display left column box about the presentation, authors, related, etc-->
   <div class="container-fluid">
 
     <div class="row">
@@ -180,12 +180,10 @@
                   </ol>
                 </div>
               </div>
-
-
             </div>
 
 
-
+            <!--This will allow the user to open up the article in question or export the information to Zotero-->
             <div class="row">
               <div class="col">
                 <button class="Button3d" value="" onclick="openTab(3, this.value)"
@@ -232,34 +230,35 @@
           {{myWords.append(currentWord) or ""}}
 
 
-          <!--This is for every 4 items. Correspond to bootstrap grid: only 4 colums per row-->
+          <!--This is will display 4 items. Correspond to bootstrap grid: only 4 colums per row-->
 
           {% if loop.index % 5 == 0%}
 
 
-            <div class="row text-center" style="margin-top: 1vh; border: 1px black solid ;">
+          <div class="row text-center" style="margin-top: 1vh; border: 1px black solid ;">
 
-              {% for word in myWords %}
+            {% for word in myWords %}
 
-               {% set lop = word["Index"] %}
+            {% set lop = word["Index"] %}
 
-                <div class="col-4" style="border: 1px black solid ;"><button class="Button3d" id="{{lop}}"
-                onclick="selectInsight(this) " type="btn btn-primary" style="background-color: #fae08f;">{{word["word"]}}
-                </button>
-                </div>
-              {% endfor %}
-
-
+            <div class="col-4" style="border: 1px black solid ;"><button class="Button3d" id="{{lop}}"
+                onclick="selectInsight(this) " type="btn btn-primary"
+                style="background-color: #fae08f;">{{word["word"]}}
+              </button>
             </div>
-
-            {% for i in range(5)%}
-             {%set temp = myWords.pop(0)%}
             {% endfor %}
+
+
+          </div>
+
+          {% for i in range(5)%}
+          {%set temp = myWords.pop(0)%}
+          {% endfor %}
 
           {% endif %}
 
-        
 
+          <!--This will output remaining words-->
           {%if loop.index == uncommonWords|length%}
 
 
@@ -270,9 +269,10 @@
             {% set lop = word["Index"] %}
 
             <div class="col-4" style="border: 1px black solid ;"><button class="Button3d" id="{{lop}}"
-              onclick="selectInsight(this) " type="btn btn-primary" style="background-color: #fae08f;">{{word["word"]}}
+                onclick="selectInsight(this) " type="btn btn-primary"
+                style="background-color: #fae08f;">{{word["word"]}}
               </button>
-              </div>
+            </div>
 
             {% endfor %}
 
@@ -283,6 +283,7 @@
           {% endfor %}
         </div>
 
+        <!--This container will provide definitions to selected word-->
         <div class="container-fluid" id="insightBlock" style="margin: 4px; display: none;">
           <div class="row">
 
@@ -299,13 +300,9 @@
                 <span style="display: none;">
 
                   {% for des in desc%}
-                    <span id="desc{{loop.index}}">{{des}}</span>
+                  <span id="desc{{loop.index}}">{{des}}</span>
 
                   {% endfor %}
-
-                 
-
-
 
                 </span>
 
@@ -319,11 +316,12 @@
 
                   </div>
                 </div>
+
+                <!--This is the website buttons-->
                 <div class="container-fluid" style="margin-top: 1vh; margin-bottom: 1vh;">
                   <div class="row">
-                    <!--This is the website buttons-->
 
-                    <div class="col-6 col-md-6" >
+                    <div class="col-6 col-md-6">
                       <button id="Browser" value="a" onclick="openTab(1, this.value)" class="Button3d"
                         type="btn btn-primary"
                         style="background-color: #9f8955; margin-right: 1vw; border: 1px black solid ; height: 8vh;">
@@ -344,6 +342,7 @@
               </div>
             </div>
 
+            <!--This is the power and setting button. They are hidden for now-->
             <div class="col" style="display: none;">
               <div class="row">
                 <button type="button" class="btn"
@@ -354,21 +353,11 @@
                   style="height: 10vh; width: 5vw;  margin: 10; background-color: lightgray; background-image: url(/static/setting.png); background-size: contain; background-repeat: no-repeat; background-position: center;"></button>
               </div>
             </div>
-
-
           </div>
-
         </div>
-
-
-
-
       </div>
     </div>
-
-   
   </div>
-
 
 
 
@@ -446,25 +435,12 @@
       document.getElementById("Browser").value = text;
       document.getElementById("AlternateBrowser").value = text;
 
-
-
       //TODO: We need to be able to get context specific information about presentation and export to zotero
-
-
-
-
-
 
 
     }
 
-
-
-
-
   </script>
 </body>
-
-
 
 </html>
