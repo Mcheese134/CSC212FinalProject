@@ -80,19 +80,7 @@ def screenRecord(screenCoord):
     count = 0
     while count != 1:
 
-        
-        print("Left: " + str(left))
-        print("Right: " + str(right))
-
-        print("Top: " + str(top))
-        print("Bottom: " + str(bottom))
-
-        print("Width: " + str(width))
-        print("Height: " + str(height))
-
-        print("BEFORE SCREENSHOT")
-
-        
+    
     
         img = pyautogui.screenshot(region=(left,top,width, height) )# (left, top, width, height)
         img.save("screenshot.png")
@@ -110,26 +98,42 @@ def screenRecord(screenCoord):
 
         if (newText != lastText):
             lastText = newText
-            print("Last deciphered text: ")
-            print(lastText)
+            #print("Last deciphered text: ")
+            #print(lastText)
             slideNum = slideNum + 1
-            print("Slide Number: ")  
-            print(slideNum)
+            #print("Slide Number: ")  
+           # print(slideNum)
             uncommonWordsOnSlide = [x for x in lastText if x not in content]
             print("Uncommon words: ")
             print(uncommonWordsOnSlide)
 
             frontend.append(slideNum)
-            frontend.append(uncommonWordsOnSlide)
 
             desc = []
-            
+            cannotParse = []
+
+
             for i in uncommonWordsOnSlide:
                 
                 specialDef = False # Set this to true if program finds a domain-specific definition
+
                 word = parser.fetch(i)
+
+
+                if(len(word) <= 0):
+                    cannotParse.append(i)
+                    continue
+
+                
                 for k, v in word[0].items():
                     if (k == 'definitions'):
+
+                        if(len(v) == 0):
+                            desc.append("Definition Not Found For: " + str(i))
+                            break
+                        else:
+                            print("LENGTH OF V: " + str(len(v)))
+
                         listStuff = v[0].get('text')
                         for i in listStuff:
                             if domain == "computing" and (("computing" in i) or ("computer science" in i)):
@@ -160,6 +164,12 @@ def screenRecord(screenCoord):
                         if specialDef == False: # If program does not find a definition specific to the domain
                             print(listStuff) # This prints all definitions, can be changed to only first definition
                             desc.append(listStuff[1])
+
+            for dup in cannotParse:
+                uncommonWordsOnSlide.remove(dup)
+            print("UNCOMMON: " + str(uncommonWordsOnSlide))
+            frontend.append(uncommonWordsOnSlide)
+
             frontend.append(desc)
                         
         time.sleep(2)

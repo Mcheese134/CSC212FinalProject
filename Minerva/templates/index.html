@@ -226,32 +226,25 @@
 
           {% for word in uncommonWords %}
 
+          {% set currentWord = ({"Index": loop.index, "word" : word}) %}
+
+
+          {{myWords.append(currentWord) or ""}}
 
 
           <!--This is for every 4 items. Correspond to bootstrap grid: only 4 colums per row-->
 
           {% if loop.index % 5 == 0%}
 
-            {% set curr = loop.index %}
-
 
             <div class="row text-center" style="margin-top: 1vh; border: 1px black solid ;">
 
               {% for word in myWords %}
 
-                {% if loop.index >= 5 %}
-                  {% set lop = loop.index + curr - 5%}
-                {% endif %}
-
-
-                {% if loop.index < 5 %}
-                  {% set lop = loop.index%}
-                {% endif %}
-
-
+               {% set lop = word["Index"] %}
 
                 <div class="col-4" style="border: 1px black solid ;"><button class="Button3d" id="{{lop}}"
-                onclick="selectInsight(this) " type="btn btn-primary" style="background-color: #fae08f;">{{word}}
+                onclick="selectInsight(this) " type="btn btn-primary" style="background-color: #fae08f;">{{word["word"]}}
                 </button>
                 </div>
               {% endfor %}
@@ -259,35 +252,30 @@
 
             </div>
 
-            {%set myWords = []%}
+            {% for i in range(5)%}
+             {%set temp = myWords.pop(0)%}
+            {% endfor %}
 
           {% endif %}
 
-          {{myWords.append(word) or ""}}
-
-          <!--This is for remaining items in list -->
-          {% set curr = loop.index %}
+        
 
           {%if loop.index == uncommonWords|length%}
 
+
           <div class="row text-center" style="margin-top: 1vh; border: 1px black solid ;">
 
-            {% if loop.index >= 5 %}
-              {% set lop = loop.index + curr - 5%}
-            {% endif %}
-
-
-            {% if loop.index < 5 %}
-              {% set lop = loop.index%}
-            {% endif %}
-            
-
             {% for word in myWords %}
-              <div class="col-4 col-md-4" style="border: 1px black solid ;"><button class="Button3d" id="{{lop}}"
-              onclick="selectInsight(this) " type="btn btn-primary" style="background-color: #fae08f;">{{word}}
+
+            {% set lop = word["Index"] %}
+
+            <div class="col-4" style="border: 1px black solid ;"><button class="Button3d" id="{{lop}}"
+              onclick="selectInsight(this) " type="btn btn-primary" style="background-color: #fae08f;">{{word["word"]}}
               </button>
               </div>
+
             {% endfor %}
+
           </div>
 
           {% endif %}
@@ -298,11 +286,11 @@
         <div class="container-fluid" id="insightBlock" style="margin: 4px; display: none;">
           <div class="row">
 
-            <div class="col-9" style="background-color: #6AB3B3; margin: 10px; border: 1px black solid ;">
+            <div class="col-12" style="background-color: #6AB3B3; margin: 10px; border: 1px black solid ;">
               <div class="container-fluid">
                 <div class="row">
                   <div class="col">
-                    <div class="float-right" style="color: #b7772a; font-size: xx-large;"><b>Insights</b></div>
+                    <div class="float-left" style="color: #b7772a; font-size: xx-large;"><b>Insights</b></div>
                   </div>
                 </div>
 
@@ -356,7 +344,7 @@
               </div>
             </div>
 
-            <div class="col">
+            <div class="col" style="display: none;">
               <div class="row">
                 <button type="button" class="btn"
                   style=" height: 10vh; width: 5vw; margin: 10; background-color: lightgray; background-image: url(/static/power.png); background-size: contain; background-repeat: no-repeat; background-position: center;"></button>
