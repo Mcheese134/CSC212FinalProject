@@ -93,9 +93,10 @@ def background_process_test():
 def intro():
  #Query String
   coord = request.cookies.get('coord')
+  domain = request.cookies.get('domain')
 
   #Variable that holds all data on slide number, uncommon words found, and the matching description
-  attributes = screenRecord(coord)
+  attributes = screenRecord(coord, domain)
 
   #Split into individual varibales
   slideNum = attributes[0]

@@ -385,7 +385,6 @@
     //This function will open a website in new tab: event code will be 1 or 2 (Google or wikipedia) and search query is the title of selected box.
     function openTab(eventCode, searchQuery) {
       searchQuery.replace(/\s/g, '+');
-      console.log("EVENT CODE and SEARCH QUERY: " + eventCode + " " + searchQuery);
 
       //Wikipedia if 1 if not 
       if (eventCode == 1) {

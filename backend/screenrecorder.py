@@ -29,7 +29,7 @@ from wiktionaryparser import WiktionaryParser
 
 
 #This function will take the coordinates, screenshot, parse that screenshot for technical jargon, and output definitions/slideNum
-def screenRecord(screenCoord):
+def screenRecord(screenCoord, domain):
 
     #OCR Directory - For Windows : Set your directory path
     #pytesseract.pytesseract.tesseract_cmd = r"C:\Users\Nasty\AppData\Local\Programs\Tesseract-OCR\tesseract.exe"
@@ -77,7 +77,7 @@ def screenRecord(screenCoord):
     slideNum = 0
 
     # Have this domain be set by the user   
-    domain = "computing" 
+    domain = domain
 
     #TODO: Make this automated for now. Need to refresh to update and only checks once
     count = 0
