@@ -13,7 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
- 
+
     <title>Landing Page</title>
 </head>
 
@@ -30,134 +30,149 @@
 
         <!--Presentation Area Options-->
 
-        <div class = "row">
-            <div class="col" ></div>
+        <div class="row">
+            <div class="col"></div>
 
-            <div class = "col" style="text-align: center;">
+            <div class="col" style="text-align: center;">
                 <button class="Button3d" value="" onclick="selectPresArea()"
-                style="background-color: #ab7e4a;"><b>SELECT PRESENTATION AREA</b></button>
+                    style="background-color: #ab7e4a;"><b>SELECT PRESENTATION AREA</b></button>
             </div>
 
-            <div class = "col"></div>
+            <div class="col"></div>
 
         </div>
 
         <!--This will prompt the user to choose coordinates for screenshot (top left and bottom right) -->
 
-        <div class = "row">
-            <div class = "col"></div>
-            <div class = "col" id = "prompt" style="text-align: center; display: none;">Select top left and bottom right corner of presentation area</div>
-            <div class = "col"></div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col" id="prompt" style="text-align: center; display: none;">Select top left and bottom right
+                corner of presentation area</div>
+            <div class="col"></div>
 
         </div>
 
 
         <!--TODO: This will allow the user to choose categories for their type of presentation-->
-        <div class = "row" style = "margin-top: 2vh; display: none;">
-            <div class = "col"></div>
+        <div class="row" style="margin-top: 2vh;">
+            <div class="col"></div>
 
-            <div class = "col" style="text-align: center;">
-                <div class="dropdown show">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        SELECT PRESENTATION TOPIC
-                    </a>
-                    
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id = "drop">
-                      <a class="dropdown-item" href="#">Biology</a>
+            <div class="col" style="text-align: center;">
 
-                      <a class="dropdown-item" href="#">Computing</a>
-                      <a class="dropdown-item" href="#">Mathematics</a>
 
-                      <a class="dropdown-item" href="#">Physics</a>
-                    </div>
-                  </div>
-            </div>
-            <div class = "col"></div>
+                <b>Please select a domain for your presentation</b>
+                <select id="domain" class="browser-default custom-select">
+                    <option value="biology">biology</option>
+                    <option value="chemistry">chemistry</option>
+                    <option value="computing">computing</option>
+                    <option value="mathematics">mathematics</option>
+                    <option value="physics">physics</option>
+                  </select>            </div>
+            <div class="col"></div>
         </div>
-        
+
         <!-- TODO: This is to be used to display what the user has selected for type of presentation -->
-        <div class = "row" style = "margin-top: 2vh;">
-            <div class = "col"></div>
-            <div class = "col" id = "topicSelect"></div>
-            <div class = "col"></div>
+        <div class="row" style="margin-top: 2vh;">
+            <div class="col"></div>
+            <div class="col" id="topicSelect"></div>
+            <div class="col"></div>
         </div>
 
         <!--This will allow the user to go to next page if they have completed presentation area selection-->
-        <div class = "row" id = "home" style="visibility: hidden;">
-            <div class = "col"></div>
-            <div class = "col"></div>
-            <div class = "col" style="text-align: center;">
-                <button class="Button3d" onclick="goToHome()" value="" 
-                style="background-color: #ab7e4a;"><b>Next Page</b></button>
-            </div>      
-            
-            
+        <div class="row" id="home" style="visibility: hidden;">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col" style="text-align: center;">
+                <button class="Button3d" onclick="goToHome()" value="" style="background-color: #ab7e4a;"><b>Next
+                        Page</b></button>
+            </div>
+
+
         </div>
 
         <!--This will display loading to next page-->
-        <div class = "row" id = "load" style="visibility: hidden;">
-            <div class = "col col-md-4"></div>
-            <div class = "col col-md-4"></div>
-            <div class = "col col-md-4" style="text-align: center; margin-top: 1vh;"><button class="btn btn-primary">
-                <span class="spinner-border spinner-border-sm"></span>
-                Loading.. Please Wait
-              </button></div>        
+        <div class="row" id="load" style="visibility: hidden;">
+            <div class="col col-md-4"></div>
+            <div class="col col-md-4"></div>
+            <div class="col col-md-4" style="text-align: center; margin-top: 1vh;"><button class="btn btn-primary">
+                    <span class="spinner-border spinner-border-sm"></span>
+                    Loading.. Please Wait
+                </button></div>
         </div>
-     
-    
+
+
     </div>
 
     <!--Javascript Scripts needed to run page-->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 
     <script>
 
-    //This will contain the presentation coordinates passed from backend (Format: [[x-coordinates], [y-coordinates]])
-    var presCoord = []
-    
-    //This function will retrieve backend coordinates from mouse clicks by using designated route (background_process_test)
-    function returnMouseCoord(event) {
-        $.ajax({
-	        type : "POST",
-	        url : '/background_process_test',
-	        dataType: "json",
-	        data: JSON.stringify("you can put in a variable in here to send data with the request"),
-	        contentType: 'application/json;charset=UTF-8',
-	        success: function (data) {
 
-                presCoord.push(data[0])
-                presCoord.push(data[1])
-                
-                document.removeEventListener("click", returnMouseCoord)
-                document.getElementById("home").style.visibility = "visible";
-		    }
-	    });
-    }
+        $(".dropdown-menu li a").click(function () {
 
-    //This function will redirect to main home page when button is clicked
-    function goToHome(){
+            $(".btn:first-child").html($(this).text() + ' <span class="caret"></span>');
 
-        //Take existing coordinates and store in cookie called coord
-        var serial = JSON.stringify(presCoord)
-        document.cookie = "coord="+serial;
+        });
 
-        //This will display loading icon
-        document.getElementById("load").style.visibility = "visible";
+        //This will contain the presentation coordinates passed from backend (Format: [[x-coordinates], [y-coordinates]])
+        var presCoord = []
 
-        //Redirect to home page
-        window.location.href = "http://127.0.0.1:5000/home"; 
+        //This function will retrieve backend coordinates from mouse clicks by using designated route (background_process_test)
+        function returnMouseCoord(event) {
+            $.ajax({
+                type: "POST",
+                url: '/background_process_test',
+                dataType: "json",
+                data: JSON.stringify("you can put in a variable in here to send data with the request"),
+                contentType: 'application/json;charset=UTF-8',
+                success: function (data) {
 
-    }    
+                    presCoord.push(data[0])
+                    presCoord.push(data[1])
 
-    //This function will display instructions for presentation area and allow for two mouse clicks for  topleft/bottom right coordinates
-    function selectPresArea(){
-        document.getElementById("prompt").style.display = "block";
-        document.addEventListener("click", returnMouseCoord);
-    }
+                    document.removeEventListener("click", returnMouseCoord)
+                    document.getElementById("home").style.visibility = "visible";
+                }
+            });
+        }
+
+        //This function will redirect to main home page when button is clicked
+        function goToHome() {
+
+            //Take existing coordinates and store in cookie called coord
+            var serial = JSON.stringify(presCoord)
+            document.cookie = "coord=" + serial;
+
+            //Get domain selection
+            var domain = document.getElementById("domain");
+            var selected = domain.value
+            document.cookie = "domain=" + selected;
+
+
+            //This will display loading icon
+            document.getElementById("load").style.visibility = "visible";
+
+            //Redirect to home page
+            window.location.href = "http://127.0.0.1:5000/home";
+
+        }
+
+        //This function will display instructions for presentation area and allow for two mouse clicks for  topleft/bottom right coordinates
+        function selectPresArea() {
+            document.getElementById("prompt").style.display = "block";
+            document.addEventListener("click", returnMouseCoord);
+        }
 
     </script>
 </body>
