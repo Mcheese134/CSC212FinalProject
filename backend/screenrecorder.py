@@ -59,6 +59,7 @@ def screenRecord(screenCoord, domain):
 
 
     #Initialize Wikitionary Parser
+    #Initialize NLTK Stemmer
     sno = nltk.stem.SnowballStemmer('english')
     parser = WiktionaryParser()
 
