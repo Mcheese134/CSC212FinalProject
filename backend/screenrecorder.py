@@ -111,8 +111,13 @@ def screenRecord(screenCoord, domain):
             #This will filter out words that was not successfully parsed
             cannotParse = []
 
+
+
             #Run through all known technical jargon
             for i in uncommonWordsOnSlide:
+
+                for c in "!@#%&*()[]{}/?<>,":
+                    i = i.replace(c, "")
                 
                 specialDef = False # Set this to true if program finds a domain-specific definition
 
@@ -168,7 +173,7 @@ def screenRecord(screenCoord, domain):
                                 break
                         #Display only the first defintion (index 0 is "not comparable" usually in this case)
                         if specialDef == False: # If program does not find a definition specific to the domain
-                            print(listStuff) # This prints all definitions, can be changed to only first definition
+                           # print(listStuff) # This prints all definitions, can be changed to only first definition
                             desc.append(listStuff[1])
 
             #Remove parsed words
