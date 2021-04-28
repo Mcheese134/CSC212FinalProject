@@ -20,7 +20,7 @@ import pytesseract
 import json
 import nltk
 import subprocess
-
+import re
 from PIL import Image
 from nltk.stem.snowball import SnowballStemmer
 from wiktionaryparser import WiktionaryParser
@@ -29,7 +29,7 @@ from wiktionaryparser import WiktionaryParser
 
 
 #This function will take the coordinates, screenshot, parse that screenshot for technical jargon, and output definitions/slideNum
-def screenRecord(screenCoord, domain):
+def screenRecord(screenCoord):
 
     #OCR Directory - For Windows : Set your directory path
     #pytesseract.pytesseract.tesseract_cmd = r"C:\Users\Nasty\AppData\Local\Programs\Tesseract-OCR\tesseract.exe"
@@ -69,6 +69,10 @@ def screenRecord(screenCoord, domain):
     with open("wordList.txt") as f:
         content = f.readlines()
     content = [x.strip() for x in content]
+ 
+
+  
+
 
     # Variable that will hold the last parsed text
     lastText = ""
@@ -76,8 +80,8 @@ def screenRecord(screenCoord, domain):
     #Current slide number when image changes
     slideNum = 0
 
-    # Have this domain be set by the user   
-    domain = domain
+    # Have this domain be set by the user
+    domain = "computing" 
 
     #TODO: Make this automated for now. Need to refresh to update and only checks once
     count = 0
@@ -107,17 +111,18 @@ def screenRecord(screenCoord, domain):
             slideNum = slideNum + 1
             uncommonWordsOnSlide = [x for x in lastText if x not in content]
             desc = []
+            uncommonWordsOnSlide1 = []
+            for x in uncommonWordsOnSlide:
+                x1 = re.sub("[^a-zA-Z]+", "", x)
+                if len(x1) > 0:
+                    uncommonWordsOnSlide1.append(x1)
+
 
             #This will filter out words that was not successfully parsed
             cannotParse = []
 
-
-
             #Run through all known technical jargon
-            for i in uncommonWordsOnSlide:
-
-                for c in "!@#%&*()[]{}/?<>,":
-                    i = i.replace(c, "")
+            for i in uncommonWordsOnSlide1:
                 
                 specialDef = False # Set this to true if program finds a domain-specific definition
 
@@ -173,21 +178,22 @@ def screenRecord(screenCoord, domain):
                                 break
                         #Display only the first defintion (index 0 is "not comparable" usually in this case)
                         if specialDef == False: # If program does not find a definition specific to the domain
-                           # print(listStuff) # This prints all definitions, can be changed to only first definition
+                            print(listStuff) # This prints all definitions, can be changed to only first definition
                             desc.append(listStuff[1])
 
             #Remove parsed words
             for dup in cannotParse:
-                uncommonWordsOnSlide.remove(dup)
+                uncommonWordsOnSlide1.remove(dup)
 
             #Append necessary data for frontend
             frontend.append(slideNum)
-            frontend.append(uncommonWordsOnSlide)
+            frontend.append(uncommonWordsOnSlide1)
             frontend.append(desc)
                         
         time.sleep(2)
         count+=1
 
     return frontend
+
 
 
